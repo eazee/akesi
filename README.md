@@ -1,4 +1,4 @@
-![akesi](app/assets/akesi-dark.png|width=200)
+![akesi](app/assets/akesi-dark.png)
 a minimal node-based conlanging toolset
 
 # Implementation Roadmap
