@@ -1,0 +1,24 @@
+extends ../templates/template.pug
+
+block content
+    section.section
+        .container
+            .columns
+                .column.is-three-quarters
+                    h1.title Log in
+                    h2.subtitle.has-text-grey.is-6 Basically my mum said that you're only allowed in if you've signed up. You know what to do.
+                    .columns
+                        .column.is-half
+                            form(action='' method='POST')
+                                != InputHelper.input_field(body, 'username', { label: "Username" })
+                                != InputHelper.input_password(body, 'password', { label: "Password" })
+                                button.button.is-primary(type='submit')
+                                    span.icon.is-small
+                                        i.fas.fa-sign-in-alt
+                                    span Log in
+                .column
+                    h4.title.is-4 Not registered yet?
+                    p
+                        | If you'd like an account but don't have one, just
+                        |
+                        a(href=path('/register')) click here

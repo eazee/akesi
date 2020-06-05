@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Noto+Sans:wght@400;700&display=swap');
+body {
+    font-family: 'Noto Sans', Helvetica, sans-serif;
+    background: #f8f8f8;
+}
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Manrope', Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.notif-section {
+    padding-bottom: 0;
+}
+
+@media(min-width: 769px) {
+    .navbar {
+        padding: 0 3em;
+    }
+}

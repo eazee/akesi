@@ -1,0 +1,16 @@
+extends ../templates/template.pug
+
+block content
+    section.section
+        .container
+            .columns
+                .column.is-half
+                    h1.title Become an akesi member
+                    form.mt-4(method='POST' action='')
+                        != InputHelper.input_email(body, 'email', { label: "Email address", post: "Fairly self-explanatory, this one. Just pop your email in and we can all get this over with swiftly." })
+                        != InputHelper.input_field(body, 'username', { label: "Username", post: "Pick a username! It has to be between 3 and 30 characters, and can only contain letters (a-Z), numbers (0-9), hyphens and underscores." })
+                        != InputHelper.input_password(body, 'password', { label: "Password", post: "Password time. Make sure it's a good'un - at least 8 characters! You don't want to have your account hijacked by little winkle-picking elves. They're always up to no good. And don't reuse passwords too; we're not cheapskates here." })
+                        button.button.is-primary(type='submit')
+                            span.icon.is-small
+                                i.fas.fa-user-plus
+                            span Sign up

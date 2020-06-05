@@ -1,0 +1,57 @@
+{
+  "name": "akesi",
+  "version": "0.0.1",
+  "description": "conlang tools website",
+  "main": "app/server.js",
+  "scripts": {
+    "build": "rimraf dist/ && babel ./app/ --out-dir dist/ --copy-files",
+    "create-tables": "babel-node app/db/setup_tables createAllTables",
+    "drop-tables": "babel-node app/db/setup_tables dropAllTables",
+    "setup": "npm run create-tables",
+    "start": "NODE_ENV=development nodemon --exec babel-node --watch app app/server.js",
+    "serve": "NODE_ENV=production node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eazee/akesi.git"
+  },
+  "keywords": [
+    "conlang"
+  ],
+  "author": "eazee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eazee/akesi/issues"
+  },
+  "homepage": "https://github.com/eazee/akesi#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-redis": "^4.0.4",
+    "cookie-parser": "^1.4.5",
+    "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.1",
+    "make-runnable": "^1.3.6",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.2.1",
+    "pug": "^2.0.4",
+    "redis": "^3.0.2",
+    "shortid": "^2.2.15",
+    "uuid": "^8.0.0",
+    "validatorjs": "^3.18.1"
+  }
+}

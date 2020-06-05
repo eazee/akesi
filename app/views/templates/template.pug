@@ -1,0 +1,50 @@
+doctype html
+html.has-navbar-fixed-top
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        title
+            block title
+                | Hello
+            |  — akesi
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')
+        link(rel='stylesheet' href=path('/assets/akesi.default.css'))
+        script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+    body
+        nav.navbar.is-dark.is-fixed-top(role='navigation' aria-label='main navigation')
+            .navbar-brand
+                a.navbar-item(href=path('/')) akesi
+            a.navbar-burger.burger(role='button' aria-label='menu' aria-expanded='false' data-target='akesiMainNav')
+                span(aria-hidden='true')
+                span(aria-hidden='true')
+                span(aria-hidden='true')
+            .navbar-menu#akesiMainNav
+                .navbar-start
+                    a.navbar-item(href='#') something
+                    a.navbar-item(href='#') something else
+                .navbar-end
+                    if user
+                        a.navbar-item(href=path('/logout')) log out
+                    else
+                        .navbar-item
+                            .buttons
+                                a.button.is-primary(href=path('/register')) register
+                                a.button.is-light(href=path('/login')) log in
+        block flash
+            - messages = getMessages()
+            if messages.error || messages.success || messages.notify
+                section.section.notif-section
+                    .container
+                        if messages.error
+                            each msg in messages.error
+                                .notification.is-danger= msg
+                        if messages.success
+                            each msg in messages.success
+                                .notification.is-success= msg
+                        if messages.notify
+                            each msg in messages.notify
+                                .notification.is-primary= msg
+        block content
+        script(src='https://code.jquery.com/jquery-3.5.0.min.js' integrity='sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=' crossorigin='anonymous')
+        script(src=path('/assets/akesi.default.js') type='text/javascript')
+        block scripts
